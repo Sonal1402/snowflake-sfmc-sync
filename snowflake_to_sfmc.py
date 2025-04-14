@@ -3,19 +3,22 @@ import requests
 import json
 
 # === CONFIGURATION ===
-SNOWFLAKE_USER = 'sonal'
-SNOWFLAKE_PASSWORD = 'M9S7zKZ6SsfZn48'
-SNOWFLAKE_ACCOUNT = 'uxmqipy-ys97690'  # Replace with your Snowflake account name (e.g., ab12345.us-east-1)
+import os
+
+SNOWFLAKE_USER = os.environ['SNOWFLAKE_USER']
+SNOWFLAKE_PASSWORD = os.environ['SNOWFLAKE_PASSWORD']
+SNOWFLAKE_ACCOUNT = os.environ['SNOWFLAKE_ACCOUNT']
 SNOWFLAKE_DATABASE = 'test_sfmc_integration'
 SNOWFLAKE_SCHEMA = 'DEMO'
 SNOWFLAKE_WAREHOUSE = 'COMPUTE_WH'
 
-SFMC_CLIENT_ID = 'yjb9g127h8qu9uw6wkyvywtu'
-SFMC_CLIENT_SECRET = 'PAGtyh1X0iVNXocA3Ybi36fg'  # Make sure this is correct
+SFMC_CLIENT_ID = os.environ['SFMC_CLIENT_ID']
+SFMC_CLIENT_SECRET = os.environ['SFMC_CLIENT_SECRET']
 SFMC_AUTH_BASE = 'https://mcg68snys52lv7t1xd970936rtp4.auth.marketingcloudapis.com'
 SFMC_REST_BASE = 'https://mcg68snys52lv7t1xd970936rtp4.rest.marketingcloudapis.com'
 
-DATA_EXTENSION_KEY = 'snowflake_contacts'  # You must set this!
+DATA_EXTENSION_KEY = 'snowflake_contacts'
+
 
 # === Step 1: Connect to Snowflake and read data ===
 def get_snowflake_data():
