@@ -2,7 +2,7 @@ name: Snowflake to SFMC Sync
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # Runs every 30 minutes
+       - cron: '* * * * *'  # Runs every minute
   workflow_dispatch:        # Manual run button
 
 jobs:
